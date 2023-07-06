@@ -30,7 +30,7 @@ namespace darioAldazS6
                 WebClient client = new WebClient();
 
                 var parametros = new NameValueCollection();
-                string url = $"http://192.168.8.102/ws_uisrael/post.php?codigo={txtCodigo.Text}&nombre={txtNombre.Text}&apellido={txtApellido.Text}&edad={txtEdad.Text}";
+                string url = $"http://192.168.17.27/ws_uisrael/post.php?codigo={txtCodigo.Text}&nombre={txtNombre.Text}&apellido={txtApellido.Text}&edad={txtEdad.Text}";
 
 
                 client.UploadValues(url, "PUT", parametros);
@@ -52,11 +52,16 @@ namespace darioAldazS6
                 WebClient client = new WebClient();
 
                 var parametros = new NameValueCollection();
-                string url = $"http://192.168.8.102/ws_uisrael/post.php?codigo={txtCodigo.Text}";
+                string url = $"http://192.168.17.27/ws_uisrael/post.php?codigo={txtCodigo.Text}";
 
 
                 client.UploadValues(url, "DELETE", parametros);
-                DisplayAlert("Alerta", "Datos eliminados correctamente", "Aceptar");
+       
+
+                var mensaje = "Dato Eliminado";
+                DependencyService.Get<Mensaje>().LongAlert(mensaje);
+  
+
                 Navigation.PushAsync(new MainPage());
             }
             catch (Exception ex)

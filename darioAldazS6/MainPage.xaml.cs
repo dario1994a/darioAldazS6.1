@@ -13,7 +13,7 @@ namespace darioAldazS6
 {
     public partial class MainPage : ContentPage
     {
-        private const string url = "http://192.168.8.102/ws_uisrael/post.php";
+        private const string url = "http://192.168.17.27/ws_uisrael/post.php";
         private HttpClient client = new HttpClient();
         private ObservableCollection<Datos> _post;
 
@@ -39,10 +39,16 @@ namespace darioAldazS6
             listaEstudiantes.ItemsSource = _post;
         }
 
-        private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+      
+
+        private void listaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
             var objetoEstudiante = (Datos)e.SelectedItem;
             Navigation.PushAsync(new Actualizar(objetoEstudiante));
+
+
+
         }
     }
 }

@@ -24,7 +24,7 @@ namespace darioAldazS6
             try
             {
                 WebClient client = new WebClient();
-                string url = "http://192.168.100.21/ws_uisrael/post.php";
+                string url = "http://192.168.17.27/ws_uisrael/post.php";
                 var parametros = new NameValueCollection();
                 parametros.Add("codigo", txtCodigo.Text);
                 parametros.Add("nombre", txtNombre.Text);
@@ -32,8 +32,14 @@ namespace darioAldazS6
                 parametros.Add("edad", txtEdad.Text);
 
                 client.UploadValues(url, "POST", parametros);
-                await DisplayAlert("Alerta", "Datos ingresados correctamente", "Aceptar");
-                Navigation.PushAsync(new MainPage());
+              
+      
+
+                var mensaje = "Dato Ingresado";
+                DependencyService.Get<Mensaje>().LongAlert(mensaje);
+                Navigation.PushAsync(new Nuevo());
+
+
             }
             catch (Exception ex)
             {

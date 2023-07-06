@@ -9,7 +9,7 @@ namespace darioAldazS6
         public int codigo { set; get; }
         public string nombre { set; get; }
         public string apellido { set; get; }
-        public int edad { set; get; }
+        public string edad { set; get; }
 
         public int Codigo { get => codigo; set => codigo = value; }
         public string Nombre { get => nombre; set => nombre = value; }

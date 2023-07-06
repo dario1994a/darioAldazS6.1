@@ -5,13 +5,43 @@
 
     <StackLayout>
         <Label Text="CONSUMO DE SERVICIO WEB" HorizontalTextAlignment="Center" FontSize="24"></Label>
-        <ListView x:Name="listaEstudiantes">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="nombre" Text="Nombre" Grid.Row="0" Grid.Column="0" FontSize="14" TextColor="DarkBlue"/>
+            <Label x:Name="apellido" Text="Apellido" Grid.Row="0" Grid.Column="1" FontSize="14" TextColor="DarkBlue"/>
+            <Label x:Name="edad" Text="Edad" Grid.Row="0" Grid.Column="2" FontSize="14" TextColor="DarkBlue"/>
+
+        </Grid>
+
+
+
+        <ListView x:Name="listaEstudiantes" ItemSelected="listaEstudiantes_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+
                         <StackLayout>
-                            <Label x:Name="lblNombre" Text="{Binding nombre}"/>
-                            <Label x:Name="lblApellido" Text="{Binding apellido}"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:Name="nombre" Text="{Binding nombre}" Grid.Row="0" Grid.Column="0"/>
+                                <Label x:Name="apellido" Text="{Binding apellido}" Grid.Row="0" Grid.Column="1"/>
+                                <Label x:Name="edad" Text="{Binding edad}" Grid.Row="0" Grid.Column="2"/>
+                            </Grid>
 
                         </StackLayout>
                     </ViewCell>
